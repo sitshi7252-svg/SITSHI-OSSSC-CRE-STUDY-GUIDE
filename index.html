@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SITSHI FOREVER - Success Blueprint</title>
+    <title>SITSHI FOREVER - 9 Day PYQ Crash Course</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,6 +15,7 @@
             --gold: #fbbf24;
             --text-dark: #064e3b;
             --love-red: #f43f5e;
+            --alert-red: #ef4444;
         }
 
         body {
@@ -23,46 +24,55 @@
             color: var(--text-dark);
             margin: 0;
             padding: 15px 10px;
-            padding-bottom: 100px; 
+            padding-bottom: 120px; 
             line-height: 1.5;
         }
 
         .header { text-align: center; color: var(--light-mint); margin-bottom: 20px; }
         h1 { font-family: 'Poppins', sans-serif; color: var(--gold); font-size: 24px; margin-bottom: 5px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         .subtitle { font-size: 13px; opacity: 0.9; }
+        .exam-alert { display: inline-block; background: var(--alert-red); color: white; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 14px; margin-top: 10px; box-shadow: 0 4px 10px rgba(239, 68, 68, 0.4); animation: pulse-red 2s infinite; }
 
+        @keyframes pulse-red { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+
+        /* PROGRESS BAR SYSTEM */
         .progress-container { background-color: rgba(255, 255, 255, 0.95); border-radius: 15px; padding: 15px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); text-align: center; border: 2px solid var(--emerald); }
         .progress-text { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: bold; color: var(--bg-forest-green); margin-bottom: 10px; }
         .progress-bar-bg { width: 100%; height: 12px; background-color: #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 15px; }
-        .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--emerald), #34d399); transition: width 0.5s ease; }
+        .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--alert-red), var(--gold), var(--emerald)); transition: width 0.5s ease; }
         
-        .sync-btn { background-color: var(--emerald); color: white; border: none; padding: 8px 15px; border-radius: 20px; font-family: 'Poppins', sans-serif; font-weight: bold; font-size: 13px; cursor: pointer; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3); transition: transform 0.2s; display: inline-flex; align-items: center; gap: 5px; }
+        .sync-btn { background-color: var(--emerald); color: white; border: none; padding: 8px 15px; border-radius: 20px; font-family: 'Poppins', sans-serif; font-weight: bold; font-size: 13px; cursor: pointer; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3); transition: transform 0.2s; }
         .sync-btn:active { transform: scale(0.95); }
 
         .card { background-color: rgba(255, 255, 255, 0.95); border-radius: 18px; padding: 20px 15px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); border-top: 5px solid var(--emerald); }
         h2 { font-family: 'Poppins', sans-serif; color: var(--emerald); font-size: 18px; margin-top: 0; border-bottom: 2px dashed var(--sage); padding-bottom: 8px; }
         h3 { font-size: 16px; color: var(--bg-forest-green); margin-bottom: 10px; }
-        .love-note { background: linear-gradient(to right, var(--sage), var(--light-mint)); border-left: 6px solid var(--emerald); padding: 12px; border-radius: 0 12px 12px 0; font-style: italic; font-weight: 500; font-size: 14px; }
+        
+        .love-note { background: linear-gradient(to right, var(--sage), var(--light-mint)); border-left: 6px solid var(--emerald); padding: 15px; border-radius: 0 12px 12px 0; font-weight: 600; font-size: 14px; }
+        .revision-box { background-color: #fffbeb; border: 2px solid var(--gold); border-radius: 10px; padding: 12px; margin-top: 15px; font-size: 13px; font-weight: bold; color: #b45309; }
 
         .table-container { overflow: hidden; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); width: 100%; }
         table { width: 100%; border-collapse: collapse; background-color: white; table-layout: fixed; }
-        th { background-color: var(--emerald); color: white; padding: 8px 4px; text-align: left; font-family: 'Poppins', sans-serif; font-size: 11px; }
-        td { padding: 8px 4px; border-bottom: 1px solid var(--sage); vertical-align: middle; font-size: 11px; word-wrap: break-word; }
+        th { background-color: var(--emerald); color: white; padding: 8px 4px; text-align: center; font-family: 'Poppins', sans-serif; font-size: 11px; }
+        td { padding: 8px 4px; border-bottom: 1px solid var(--sage); vertical-align: middle; font-size: 11px; word-wrap: break-word; text-align: center; }
 
         .interactive-row { transition: all 0.3s ease; }
         .data-cell { cursor: pointer; }
         .weekend-row { background-color: #fef3c7 !important; font-weight: bold; color: #92400e; }
         .tea-badge { background-color: var(--sage); color: var(--bg-forest-green); padding: 2px 6px; border-radius: 8px; font-size: 10px; font-weight: bold; display: inline-block; margin-top: 3px; }
+        .pyq-badge { background-color: var(--gold); color: #78350f; padding: 2px 6px; border-radius: 5px; font-size: 9px; font-weight: bold; }
 
         .check-col { width: 25px; text-align: center; }
         .day-cb { width: 18px; height: 18px; accent-color: var(--emerald); margin: 0; }
         .completed-row { opacity: 0.5; background-color: #f1f5f9; text-decoration: line-through; }
 
+        ul, ol { padding-left: 20px; font-size: 14px; }
+        li { margin-bottom: 10px; }
+
         .pglu-note { text-align: center; margin-top: 30px; }
         .pglu-text { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: bold; color: var(--light-mint); background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 15px; border-radius: 20px; border: 2px solid var(--emerald); display: inline-block; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
 
         .fab { position: fixed; bottom: 25px; right: 20px; background-color: var(--love-red); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(244, 63, 94, 0.5); cursor: pointer; z-index: 100; animation: pulse 2s infinite; border: none; }
-        @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7); } 70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(244, 63, 94, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); } }
 
         /* ENVELOPE MODAL */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2, 44, 34, 0.85); z-index: 999; backdrop-filter: blur(4px); align-items: center; justify-content: center; flex-direction: column; }
@@ -78,7 +88,6 @@
         .tap-hint { color: var(--gold); font-family: 'Poppins', sans-serif; font-size: 16px; margin-top: 30px; font-weight: bold; animation: bounce 1.5s infinite; transition: opacity 0.3s; }
         @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-        /* TOAST NOTIFICATION */
         #toast { position: fixed; bottom: -60px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--bg-dark-green); padding: 10px 20px; border-radius: 30px; font-family: 'Poppins', sans-serif; font-weight: bold; font-size: 14px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: bottom 0.4s ease; z-index: 1000; }
         #toast.show { bottom: 30px; }
     </style>
@@ -87,85 +96,111 @@
 
     <div class="header">
         <h1>💖 SITSHI FOREVER 💖</h1>
-        <div class="subtitle">The Ultimate OSSSC CRE ICDS Success Blueprint<br>🌟 Designed with infinite love for SHI from SIT 🤞❤️💚</div>
+        <div class="subtitle">The High-Yield 9-Day PYQ Crash Course<br>🌟 Designed with infinite love for SHI from SIT 🤞❤️💚</div>
+        <div class="exam-alert">🚨 EXAM: JUNE 18 @ 4:00 PM 🚨</div>
     </div>
 
     <div class="progress-container">
         <div class="progress-text">Our Journey: <span id="progress-percent">0%</span> Completed</div>
         <div class="progress-bar-bg"><div class="progress-fill" id="progress-fill"></div></div>
-        <button class="sync-btn" onclick="manualSync()">📲 Send Progress to SIT</button>
+        <button class="sync-btn" onclick="manualSync()">📲 Send Progress to Pglu</button>
     </div>
 
     <div class="card">
         <div class="love-note">
             <h2 style="border: none; margin-bottom: 5px;">🌸 A Note from SIT 🌸</h2>
             <p>My dearest SHI,</p>
-            <p>I know the syllabus looks massive, but remember: you only need to conquer it <strong>one day at a time</strong>. Tap the checkbox when you finish a day so I can celebrate with you!</p>
-            <p>Tap any table row for a surprise letter. Let's claim this victory! ❤️💚🤞</p>
+            <p>We only have 9 days, which means no reading giant books! We are shifting strictly to high-reward topics and <strong>Previous Year Questions (PYQs)</strong>. This is a single written exam—accuracy and PYQ patterns are your best friends.</p>
+            <p>I believe in you completely, my Wifey. Let's claim this victory together! ❤️💚🤞</p>
         </div>
     </div>
 
     <div class="card">
-        <h3>📊 Week 1: Foundations & Core</h3>
-        <div class="table-container">
-            <table>
-                <tr><th class="check-col">✓</th><th style="width:13%">Day</th><th style="width:30%">☀️ Day (2H)</th><th style="width:30%">🌙 Night (3H)</th><th style="width:20%">✍️ Practice</th></tr>
-                <tr class="interactive-row" id="row-1"><td class="check-col"><input type="checkbox" class="day-cb" data-day="1" onchange="toggleDay(this, 'Day 1')"></td><td class="data-cell" onclick="openModal()"><strong>Day 1</strong></td><td class="data-cell" onclick="openModal()">Number Sys</td><td class="data-cell" onclick="openModal()">Odisha Hist.</td><td class="data-cell" onclick="openModal()">MCQs</td></tr>
-                <tr class="interactive-row" id="row-2"><td class="check-col"><input type="checkbox" class="day-cb" data-day="2" onchange="toggleDay(this, 'Day 2')"></td><td class="data-cell" onclick="openModal()"><strong>Day 2</strong></td><td class="data-cell" onclick="openModal()">Fractions</td><td class="data-cell" onclick="openModal()">English Parts</td><td class="data-cell" onclick="openModal()">Quiz <span class="tea-badge">☕</span></td></tr>
-                <tr class="interactive-row" id="row-3"><td class="check-col"><input type="checkbox" class="day-cb" data-day="3" onchange="toggleDay(this, 'Day 3')"></td><td class="data-cell" onclick="openModal()"><strong>Day 3</strong></td><td class="data-cell" onclick="openModal()">Percentages</td><td class="data-cell" onclick="openModal()">Odia Spell.</td><td class="data-cell" onclick="openModal()">Problems</td></tr>
-                <tr class="interactive-row" id="row-4"><td class="check-col"><input type="checkbox" class="day-cb" data-day="4" onchange="toggleDay(this, 'Day 4')"></td><td class="data-cell" onclick="openModal()"><strong>Day 4</strong></td><td class="data-cell" onclick="openModal()">Percent Adv.</td><td class="data-cell" onclick="openModal()">Comp Hard.</td><td class="data-cell" onclick="openModal()">Mix MCQs</td></tr>
-                <tr class="interactive-row" id="row-5"><td class="check-col"><input type="checkbox" class="day-cb" data-day="5" onchange="toggleDay(this, 'Day 5')"></td><td class="data-cell" onclick="openModal()"><strong>Day 5</strong></td><td class="data-cell" onclick="openModal()">Profit/Loss</td><td class="data-cell" onclick="openModal()">Static GK</td><td class="data-cell" onclick="openModal()">Sets</td></tr>
-                <tr class="interactive-row" id="row-6"><td class="check-col"><input type="checkbox" class="day-cb" data-day="6" onchange="toggleDay(this, 'Day 6')"></td><td class="data-cell" onclick="openModal()"><strong>Day 6</strong></td><td class="data-cell" onclick="openModal()">Profit Adv.</td><td class="data-cell" onclick="openModal()">Eng Tenses</td><td class="data-cell" onclick="openModal()">Drill <span class="tea-badge">☕</span></td></tr>
-                <tr class="interactive-row weekend-row" id="row-7"><td class="check-col"><input type="checkbox" class="day-cb" data-day="7" onchange="toggleDay(this, 'Mock Test 1')"></td><td class="data-cell" onclick="openModal('Get ready for our long video call wifey! 😏😋')"><strong>Day 7</strong></td><td class="data-cell" onclick="openModal('Get ready for our long video call wifey! 😏😋')"><strong>MOCK 1</strong></td><td class="data-cell" onclick="openModal('Get ready for our long video call wifey! 😏😋')"><strong>LONG CALL 😏</strong></td><td class="data-cell" onclick="openModal('Get ready for our long video call wifey! 😏😋')">Analyze</td></tr>
-            </table>
+        <h2>🗓️ The 9-Day Power Architecture</h2>
+        <ul>
+            <li><strong>☀️ Day (2 Hrs):</strong> High-Yield Math & Reasoning solving.</li>
+            <li><strong>☕ Tea Break (15 M):</strong> Grab tea, stretch, text Pglu!</li>
+            <li><strong>🌙 Night (3 Hrs):</strong> 
+                <br><span style="color:var(--emerald); font-weight:bold;">1st Hour: Pure PYQ Practice</span> (Odia, English, GK, Comp).
+                <br><span style="color:var(--bg-forest-green); font-weight:bold;">Next 1.5 Hrs: Rapid Reading</span> (Grammar rules, facts).
+                <br><span style="color:var(--alert-red); font-weight:bold;">Last 30 Mins: MANDATORY REVISION!</span> Read the whole day's notes.
+            </li>
+        </ul>
+        <div class="revision-box">
+            🔔 REMINDER: Active recall through PYQs and the final 30-min revision are where the magic happens! Do not skip!
         </div>
     </div>
 
     <div class="card">
-        <h3>📊 Week 2: Math & Logic</h3>
+        <h3>📊 The Intensive PYQ Sprint</h3>
+        <p style="font-size: 11px; text-align:center; color: gray;"><em>Tap any row for a surprise letter! 💌</em></p>
         <div class="table-container">
             <table>
-                <tr><th class="check-col">✓</th><th style="width:13%">Day</th><th style="width:30%">☀️ Day (2H)</th><th style="width:30%">🌙 Night (3H)</th><th style="width:20%">✍️ Practice</th></tr>
-                <tr class="interactive-row" id="row-8"><td class="check-col"><input type="checkbox" class="day-cb" data-day="8" onchange="toggleDay(this, 'Day 8')"></td><td class="data-cell" onclick="openModal()"><strong>Day 8</strong></td><td class="data-cell" onclick="openModal()">Ratios</td><td class="data-cell" onclick="openModal()">Constitution</td><td class="data-cell" onclick="openModal()">MCQs</td></tr>
-                <tr class="interactive-row" id="row-9"><td class="check-col"><input type="checkbox" class="day-cb" data-day="9" onchange="toggleDay(this, 'Day 9')"></td><td class="data-cell" onclick="openModal()"><strong>Day 9</strong></td><td class="data-cell" onclick="openModal()">Simple Int.</td><td class="data-cell" onclick="openModal()">Windows OS</td><td class="data-cell" onclick="openModal()">Sets <span class="tea-badge">☕</span></td></tr>
-                <tr class="interactive-row" id="row-10"><td class="check-col"><input type="checkbox" class="day-cb" data-day="10" onchange="toggleDay(this, 'Day 10')"></td><td class="data-cell" onclick="openModal()"><strong>Day 10</strong></td><td class="data-cell" onclick="openModal()">Comp. Int.</td><td class="data-cell" onclick="openModal()">Odia Sandhi</td><td class="data-cell" onclick="openModal()">Drill</td></tr>
-                <tr class="interactive-row" id="row-11"><td class="check-col"><input type="checkbox" class="day-cb" data-day="11" onchange="toggleDay(this, 'Day 11')"></td><td class="data-cell" onclick="openModal()"><strong>Day 11</strong></td><td class="data-cell" onclick="openModal()">No. Series</td><td class="data-cell" onclick="openModal()">Subj-Verb</td><td class="data-cell" onclick="openModal()">Puzzles</td></tr>
-                <tr class="interactive-row" id="row-12"><td class="check-col"><input type="checkbox" class="day-cb" data-day="12" onchange="toggleDay(this, 'Day 12')"></td><td class="data-cell" onclick="openModal()"><strong>Day 12</strong></td><td class="data-cell" onclick="openModal()">Blood Rel.</td><td class="data-cell" onclick="openModal()">Odisha Geo.</td><td class="data-cell" onclick="openModal()">Quiz</td></tr>
-                <tr class="interactive-row" id="row-13"><td class="check-col"><input type="checkbox" class="day-cb" data-day="13" onchange="toggleDay(this, 'Day 13')"></td><td class="data-cell" onclick="openModal()"><strong>Day 13</strong></td><td class="data-cell" onclick="openModal()">Time/Work</td><td class="data-cell" onclick="openModal()">MS Word</td><td class="data-cell" onclick="openModal()">Drill <span class="tea-badge">☕</span></td></tr>
-                <tr class="interactive-row weekend-row" id="row-14"><td class="check-col"><input type="checkbox" class="day-cb" data-day="14" onchange="toggleDay(this, 'Mock Test 2')"></td><td class="data-cell" onclick="openModal('Weekend reward time! Long video call! 😏😋')"><strong>Day 14</strong></td><td class="data-cell" onclick="openModal('Weekend reward time! Long video call! 😏😋')"><strong>MOCK 2</strong></td><td class="data-cell" onclick="openModal('Weekend reward time! Long video call! 😏😋')"><strong>LONG CALL 😏</strong></td><td class="data-cell" onclick="openModal('Weekend reward time! Long video call! 😏😋')">Formulas</td></tr>
-            </table>
-        </div>
-    </div>
-    
-        <div class="card">
-        <h3>📊 Week 3: Geometry & Sciences</h3>
-        <div class="table-container">
-            <table>
-                <tr><th class="check-col">✓</th><th style="width:13%">Day</th><th style="width:30%">☀️ Day (2H)</th><th style="width:30%">🌙 Night (3H)</th><th style="width:20%">✍️ Practice</th></tr>
-                <tr class="interactive-row" id="row-15"><td class="check-col"><input type="checkbox" class="day-cb" data-day="15" onchange="toggleDay(this, 'Day 15')"></td><td class="data-cell" onclick="openModal()"><strong>Day 15</strong></td><td class="data-cell" onclick="openModal()">Speed/Dist.</td><td class="data-cell" onclick="openModal()">Human Body</td><td class="data-cell" onclick="openModal()">MCQs</td></tr>
-                <tr class="interactive-row" id="row-16"><td class="check-col"><input type="checkbox" class="day-cb" data-day="16" onchange="toggleDay(this, 'Day 16')"></td><td class="data-cell" onclick="openModal()"><strong>Day 16</strong></td><td class="data-cell" onclick="openModal()">Averages</td><td class="data-cell" onclick="openModal()">MS Excel</td><td class="data-cell" onclick="openModal()">Drill <span class="tea-badge">☕</span></td></tr>
-                <tr class="interactive-row" id="row-17"><td class="check-col"><input type="checkbox" class="day-cb" data-day="17" onchange="toggleDay(this, 'Day 17')"></td><td class="data-cell" onclick="openModal()"><strong>Day 17</strong></td><td class="data-cell" onclick="openModal()">Syllogisms</td><td class="data-cell" onclick="openModal()">Odia Samasa</td><td class="data-cell" onclick="openModal()">Q's</td></tr>
-                <tr class="interactive-row" id="row-18"><td class="check-col"><input type="checkbox" class="day-cb" data-day="18" onchange="toggleDay(this, 'Day 18')"></td><td class="data-cell" onclick="openModal()"><strong>Day 18</strong></td><td class="data-cell" onclick="openModal()">2D Mensur.</td><td class="data-cell" onclick="openModal()">Active/Pass.</td><td class="data-cell" onclick="openModal()">2D Drill</td></tr>
-                <tr class="interactive-row" id="row-19"><td class="check-col"><input type="checkbox" class="day-cb" data-day="19" onchange="toggleDay(this, 'Day 19')"></td><td class="data-cell" onclick="openModal()"><strong>Day 19</strong></td><td class="data-cell" onclick="openModal()">3D Mensur.</td><td class="data-cell" onclick="openModal()">MS PowerPt.</td><td class="data-cell" onclick="openModal()">3D Drill</td></tr>
-                <tr class="interactive-row" id="row-20"><td class="check-col"><input type="checkbox" class="day-cb" data-day="20" onchange="toggleDay(this, 'Day 20')"></td><td class="data-cell" onclick="openModal()"><strong>Day 20</strong></td><td class="data-cell" onclick="openModal()">Seating Arr.</td><td class="data-cell" onclick="openModal()">Indian Hist.</td><td class="data-cell" onclick="openModal()">Quiz</td></tr>
-                <tr class="interactive-row weekend-row" id="row-21"><td class="check-col"><input type="checkbox" class="day-cb" data-day="21" onchange="toggleDay(this, 'Mock Test 3')"></td><td class="data-cell" onclick="openModal('You earned this break! Long video call! 😏😋')"><strong>Day 21</strong></td><td class="data-cell" onclick="openModal('You earned this break! Long video call! 😏😋')"><strong>MOCK 3</strong></td><td class="data-cell" onclick="openModal('You earned this break! Long video call! 😏😋')"><strong>LONG CALL 😏</strong></td><td class="data-cell" onclick="openModal('You earned this break! Long video call! 😏😋')">Review</td></tr>
-            </table>
-        </div>
-    </div>
+                <tr>
+                    <th class="check-col">✓</th>
+                    <th style="width:15%">Date</th>
+                    <th style="width:30%">☀️ Math/Logic (2H)</th>
+                    <th style="width:35%">🌙 PYQs & Core (3H)</th>
+                </tr>
+                <tr class="interactive-row" id="row-1">
+                    <td class="check-col"><input type="checkbox" class="day-cb" data-day="1" onchange="toggleDay(this, 'Day 1')"></td>
+                    <td class="data-cell" onclick="openModal()"><strong>Jun 9</strong></td>
+                    <td class="data-cell" onclick="openModal()">Number Sys & Percentages</td>
+                    <td class="data-cell" onclick="openModal()"><span class="pyq-badge">PYQ</span> Eng & Odia Grammar<br><em>Read:</em> Hist Dates & Eng Verbs</td>
+                </tr>
+                <tr class="interactive-row" id="row-2">
+                    <td class="check-col"><input type="checkbox" class="day-cb" data-day="2" onchange="toggleDay(this, 'Day 2')"></td>
+                    <td class="data-cell" onclick="openModal()"><strong>Jun 10</strong></td>
+                    <td class="data-cell" onclick="openModal()">Profit/Loss & Discount</td>
+                    <td class="data-cell" onclick="openModal()"><span class="pyq-badge">PYQ</span> GK & Computer<br><em>Read:</em> Polity Articles & Odia Spell</td>
+                </tr>
+                <tr class="interactive-row" id="row-3">
+                    <td class="check-col"><input type="checkbox" class="day-cb" data-day="3" onchange="toggleDay(this, 'Day 3')"></td>
+                    <td class="data-cell" onclick="openModal()"><strong>Jun 11</strong></td>
+                    <td class="data-cell" onclick="openModal()">Ratios & Simple Int.</td>
+                    <td class="data-cell" onclick="openModal()"><span class="pyq-badge">PYQ</span> Eng & Odia Grammar<br><em>Read:</em> Comp Shortcuts & MS Office</td>
+                </tr>
+                <tr class="interactive-row" id="row-4">
+                    <td class="check-col"><input type="checkbox" class="day-cb" data-day="4" onchange="toggleDay(this, 'Day 4')"></td>
+                    <td class="data-cell" onclick="openModal()"><strong>Jun 12</strong></td>
+                    <td class="data-cell" onclick="openModal()">Time/Work & Speed</td>
+                    <td class="data-cell" onclick="openModal()"><span class="pyq-badge">PYQ</span> GK & Computer<br><em>Read:</em> Odisha Geo & Science</td>
+                </tr>
+                <tr class="interactive-row" id="row-5">
+                    <td class="check-col"><input type="checkbox" class="day-cb" data-day="5" onchange="toggleDay(this, 'Day 5')"></td>
+                    <td class="data-cell" onclick="openModal()"><strong>Jun 13</strong></td>
+                    <td class="data-cell" onclick="openModal()">Blood Rel & Series</td>
+                    <td class="data-cell" onclick="openModal()"><span class="pyq-badge">PYQ</span> Eng & Odia Grammar<br><em>Read:</em> Eng Voice/Speech & Samasa</td>
+                </tr>
 
-    <div class="card">
-        <h3>📊 Week 4: Final Polish</h3>
-        <div class="table-container">
-            <table>
-                <tr><th class="check-col">✓</th><th style="width:13%">Day</th><th style="width:30%">☀️ Day (2H)</th><th style="width:30%">🌙 Night (3H)</th><th style="width:20%">✍️ Practice</th></tr>
-                <tr class="interactive-row" id="row-22"><td class="check-col"><input type="checkbox" class="day-cb" data-day="22" onchange="toggleDay(this, 'Day 22')"></td><td class="data-cell" onclick="openModal()"><strong>Day 22</strong></td><td class="data-cell" onclick="openModal()">DI: Graphs</td><td class="data-cell" onclick="openModal()">Current Aff.</td><td class="data-cell" onclick="openModal()">DI Sets</td></tr>
-                <tr class="interactive-row" id="row-23"><td class="check-col"><input type="checkbox" class="day-cb" data-day="23" onchange="toggleDay(this, 'Day 23')"></td><td class="data-cell" onclick="openModal()"><strong>Day 23</strong></td><td class="data-cell" onclick="openModal()">DI: Pie Charts</td><td class="data-cell" onclick="openModal()">Odisha Gov.</td><td class="data-cell" onclick="openModal()">DI Sets</td></tr>
-                <tr class="interactive-row" id="row-24"><td class="check-col"><input type="checkbox" class="day-cb" data-day="24" onchange="toggleDay(this, 'Day 24')"></td><td class="data-cell" onclick="openModal()"><strong>Day 24</strong></td><td class="data-cell" onclick="openModal()">Basic Algebra</td><td class="data-cell" onclick="openModal()">Direct/Indir.</td><td class="data-cell" onclick="openModal()">Quiz</td></tr>
-                <tr class="interactive-row" id="row-25"><td class="check-col"><input type="checkbox" class="day-cb" data-day="25" onchange="toggleDay(this, 'Day 25')"></td><td class="data-cell" onclick="openModal()"><strong>Day 25</strong></td><td class="data-cell" onclick="openModal()">Patterns</td><td class="data-cell" onclick="openModal()">Odia Idioms</td><td class="data-cell" onclick="openModal()">Reasoning</td></tr>
-                <tr class="interactive-row" id="row-26"><td class="check-col"><input type="checkbox" class="day-cb" data-day="26" onchange="toggleDay(this, 'Day 26')"></td><td class="data-cell" onclick="openModal()"><strong>Day 26</strong></td><td class="data-cell" onclick="openModal()">Math Speed</td><td class="data-cell" onclick="openModal()">Cyber Sec.</td><td class="data-cell" onclick="openModal()">Mixed Run</td></tr>
-                <tr class="interactive-row weekend-row" id="row-27"><td class="check-col"><input type="checkbox" class="day-cb" data-day="27" onchange="toggleDay(this, 'Mock Test 4')"></td><td class="data-cell" onclick="openModal('Final stretch baby! You got this! 🔥')"><strong>Day 27</strong></td><td class="data-cell" onclick="openModal('Final stretch baby! You got this! 🔥')"><strong>MOCK 4</strong></td><td class="data-cell" onclick="openModal('Final stretch baby! You got this! 🔥')">Error Analysis</td><td class="data-cell" onclick="openModal('Final stretch baby! You got this! 🔥')">Fix spots</td></tr>
-                <tr class="interactive-row weekend-row" id="row-28"><td class="check-col"><input type="checkbox" class="day-cb" data-day="28" onchange="toggleDay(this, 'Mock Test 5')"></td><td class="data-cell" onclick="openModal('Almost exam day! I am so proud of you! ❤️')"><strong>Day 28</strong></td><td class="data-cell" onclick="openModal('Almost exam day! I am so proud of you! ❤️')"><strong>MOCK 5</strong></td><td class="data-cell" onclick="openModal('Almost exam day! I am so proud of you! ❤️')">Rules Revise</td><td class="data-cell" onclick="openModal('Almost exam day! I am so proud of you! ❤️')">Formulas</td></tr>
+                                <tr class="interactive-row" id="row-6">
+                    <td class="check-col"><input type="checkbox" class="day-cb" data-day="6" onchange="toggleDay(this, 'Day 6')"></td>
+                    <td class="data-cell" onclick="openModal()"><strong>Jun 14</strong></td>
+                    <td class="data-cell" onclick="openModal()">Data Interpretation</td>
+                    <td class="data-cell" onclick="openModal()"><span class="pyq-badge">PYQ</span> ALL SUBJECTS<br><em>Read:</em> Static GK (Parks, Dams)</td>
+                </tr>
+                <tr class="interactive-row weekend-row" id="row-7">
+                    <td class="check-col"><input type="checkbox" class="day-cb" data-day="7" onchange="toggleDay(this, 'Mock Test 1')"></td>
+                    <td class="data-cell" onclick="openModal('Get ready for our long video call wifey! 😏😋')"><strong>Jun 15</strong></td>
+                    <td class="data-cell" onclick="openModal('Get ready for our long video call wifey! 😏😋')"><strong>MOCK TEST 1</strong></td>
+                    <td class="data-cell" onclick="openModal('Get ready for our long video call wifey! 😏😋')"><strong>LONG VIDEO CALL 😏</strong></td>
+                </tr>
+                <tr class="interactive-row weekend-row" id="row-8">
+                    <td class="check-col"><input type="checkbox" class="day-cb" data-day="8" onchange="toggleDay(this, 'Mock Test 2')"></td>
+                    <td class="data-cell" onclick="openModal('Almost there baby! Long video call tonight! 😏😋')"><strong>Jun 16</strong></td>
+                    <td class="data-cell" onclick="openModal('Almost there baby! Long video call tonight! 😏😋')"><strong>MOCK TEST 2</strong></td>
+                    <td class="data-cell" onclick="openModal('Almost there baby! Long video call tonight! 😏😋')"><strong>LONG VIDEO CALL 😏</strong></td>
+                </tr>
+                <tr class="interactive-row weekend-row" id="row-9" style="background-color: #dcfce7 !important;">
+                    <td class="check-col"><input type="checkbox" class="day-cb" data-day="9" onchange="toggleDay(this, 'Final Prep')"></td>
+                    <td class="data-cell" onclick="openModal('I am so proud of you! Get ready for tomorrow! ❤️')"><strong>Jun 17</strong></td>
+                    <td class="data-cell" onclick="openModal('I am so proud of you! Get ready for tomorrow! ❤️')"><strong>Light Review & Formulas</strong></td>
+                    <td class="data-cell" onclick="openModal('I am so proud of you! Get ready for tomorrow! ❤️')"><strong>Pack Admit Card! Sleep 😴</strong></td>
+                </tr>
             </table>
+        </div>
+        <div class="revision-box" style="background-color: #fee2e2; border-color: var(--alert-red); color: #991b1b; text-align: center; margin-top: 15px;">
+            ⚠️ EXAM DAY: JUNE 18 ⚠️<br>Report at 2:30 PM | Exam: 4:00 PM to 5:30 PM<br>Center: Dew Nexus Soft Tech, Cuttack
         </div>
     </div>
 
@@ -190,9 +225,8 @@
     </div>
 
     <script>
-        const totalDays = 28;
+        const totalDays = 9; 
         
-        // 1. Core Logic & Magic Sync
         function loadProgress() {
             const urlParams = new URLSearchParams(window.location.search);
             const syncData = urlParams.get('progress');
@@ -223,6 +257,12 @@
             
             setInterval(check11PM, 60000); 
             check11PM(); 
+            
+            if (completedCount > 0 && completedCount < totalDays) {
+                setTimeout(() => {
+                    alert("Wifey! Have you done your 30-minute revision today? Do not forget! 😉💚");
+                }, 1500);
+            }
         }
 
         function toggleDay(checkbox, dayName) {
@@ -250,7 +290,6 @@
             document.getElementById('progress-fill').style.width = percentage + '%';
         }
 
-        // 2. WhatsApp Magic Link Generator
         function generateMagicLink() {
             const completed = [];
             for(let i=1; i<=totalDays; i++) {
@@ -266,11 +305,8 @@
             window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`);
         }
 
-        function manualSync() {
-            sendWhatsAppReport("my targets for today");
-        }
+        function manualSync() { sendWhatsAppReport("my targets for today"); }
 
-        // 3. The 11 PM Auto Alarm
         function check11PM() {
             const now = new Date();
             const hours = now.getHours();
@@ -286,7 +322,6 @@
 
         window.onload = loadProgress;
 
-        // 4. Envelope Logic
         const notes = [
             "i am always with you 😉😘",
             "Carry On Bachaa 🥰😌🫶",
@@ -295,7 +330,7 @@
             "You're doing amazing, my love! 💚",
             "Take a deep breath, I'm right here. 🫂",
             "One step closer to our success! 🌟",
-            "My brilliant Wifey! Keep going! 👑",
+            "Did you do your PYQs? 🤨💚",
             "SIT loves SHI forever! ❤️💚",
             "Proud of your hard work today! 😘"
         ];
