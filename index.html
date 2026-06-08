@@ -27,72 +27,60 @@
             line-height: 1.5;
         }
 
-        .header { text-align: center; color: var(--light-mint); margin-bottom: 25px; }
+        .header { text-align: center; color: var(--light-mint); margin-bottom: 20px; }
         h1 { font-family: 'Poppins', sans-serif; color: var(--gold); font-size: 24px; margin-bottom: 5px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         .subtitle { font-size: 13px; opacity: 0.9; }
 
-        .card {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 18px;
-            padding: 20px 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            border-top: 5px solid var(--emerald);
-        }
+        .progress-container { background-color: rgba(255, 255, 255, 0.95); border-radius: 15px; padding: 15px; margin-bottom: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); text-align: center; border: 2px solid var(--emerald); }
+        .progress-text { font-family: 'Poppins', sans-serif; font-size: 16px; font-weight: bold; color: var(--bg-forest-green); margin-bottom: 10px; }
+        .progress-bar-bg { width: 100%; height: 12px; background-color: #e2e8f0; border-radius: 10px; overflow: hidden; margin-bottom: 15px; }
+        .progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg, var(--emerald), #34d399); transition: width 0.5s ease; }
+        
+        .sync-btn { background-color: var(--emerald); color: white; border: none; padding: 8px 15px; border-radius: 20px; font-family: 'Poppins', sans-serif; font-weight: bold; font-size: 13px; cursor: pointer; box-shadow: 0 4px 6px rgba(16, 185, 129, 0.3); transition: transform 0.2s; display: inline-flex; align-items: center; gap: 5px; }
+        .sync-btn:active { transform: scale(0.95); }
 
+        .card { background-color: rgba(255, 255, 255, 0.95); border-radius: 18px; padding: 20px 15px; margin-bottom: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); border-top: 5px solid var(--emerald); }
         h2 { font-family: 'Poppins', sans-serif; color: var(--emerald); font-size: 18px; margin-top: 0; border-bottom: 2px dashed var(--sage); padding-bottom: 8px; }
         h3 { font-size: 16px; color: var(--bg-forest-green); margin-bottom: 10px; }
-
         .love-note { background: linear-gradient(to right, var(--sage), var(--light-mint)); border-left: 6px solid var(--emerald); padding: 12px; border-radius: 0 12px 12px 0; font-style: italic; font-weight: 500; font-size: 14px; }
 
-        /* FIXED TABLE FOR MOBILE (No more sliding) */
         .table-container { overflow: hidden; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); width: 100%; }
         table { width: 100%; border-collapse: collapse; background-color: white; table-layout: fixed; }
         th { background-color: var(--emerald); color: white; padding: 8px 4px; text-align: left; font-family: 'Poppins', sans-serif; font-size: 11px; }
-        td { padding: 8px 4px; border-bottom: 1px solid var(--sage); vertical-align: top; font-size: 11px; word-wrap: break-word; }
+        td { padding: 8px 4px; border-bottom: 1px solid var(--sage); vertical-align: middle; font-size: 11px; word-wrap: break-word; }
 
-        .interactive-row { transition: all 0.2s ease; cursor: pointer; }
-        .interactive-row:active { background-color: var(--sage); transform: scale(0.98); }
+        .interactive-row { transition: all 0.3s ease; }
+        .data-cell { cursor: pointer; }
         .weekend-row { background-color: #fef3c7 !important; font-weight: bold; color: #92400e; }
         .tea-badge { background-color: var(--sage); color: var(--bg-forest-green); padding: 2px 6px; border-radius: 8px; font-size: 10px; font-weight: bold; display: inline-block; margin-top: 3px; }
 
-        ul, ol { padding-left: 20px; font-size: 14px; }
-        li { margin-bottom: 10px; }
+        .check-col { width: 25px; text-align: center; }
+        .day-cb { width: 18px; height: 18px; accent-color: var(--emerald); margin: 0; }
+        .completed-row { opacity: 0.5; background-color: #f1f5f9; text-decoration: line-through; }
 
         .pglu-note { text-align: center; margin-top: 30px; }
         .pglu-text { font-family: 'Poppins', sans-serif; font-size: 18px; font-weight: bold; color: var(--light-mint); background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); padding: 15px; border-radius: 20px; border: 2px solid var(--emerald); display: inline-block; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
 
-        /* FLOATING MESSAGE BUTTON */
         .fab { position: fixed; bottom: 25px; right: 20px; background-color: var(--love-red); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(244, 63, 94, 0.5); cursor: pointer; z-index: 100; animation: pulse 2s infinite; border: none; }
         @keyframes pulse { 0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7); } 70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(244, 63, 94, 0); } 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); } }
 
-        /* 💌 THE ENVELOPE MODAL MAGIC 💌 */
+        /* ENVELOPE MODAL */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(2, 44, 34, 0.85); z-index: 999; backdrop-filter: blur(4px); align-items: center; justify-content: center; flex-direction: column; }
         .modal-overlay.active { display: flex; }
-        
         .close-btn { position: absolute; top: 30px; right: 30px; color: white; font-size: 40px; font-weight: bold; cursor: pointer; }
-        
         .env-wrapper { position: relative; width: 260px; height: 160px; margin-top: 80px; cursor: pointer; }
-        
-        /* Base of envelope */
         .env-back { position: absolute; top: 0; left: 0; width: 260px; height: 160px; background-color: #d4af37; border-radius: 5px; z-index: 1; }
-        
-        /* The sliding paper */
         .env-paper { position: absolute; top: 10px; left: 10px; width: 240px; height: 140px; background-color: #fffdf2; border-radius: 5px; z-index: 2; transition: all 0.6s ease; box-sizing: border-box; padding: 20px; display: flex; align-items: center; justify-content: center; text-align: center; font-family: 'Poppins', sans-serif; font-weight: bold; color: var(--bg-forest-green); font-size: 16px; border: 2px dashed var(--emerald); }
-        
-        /* Front folds of envelope */
         .env-front { position: absolute; bottom: 0; left: 0; width: 0; height: 0; border-left: 130px solid #eab308; border-right: 130px solid #eab308; border-bottom: 90px solid #ca8a04; z-index: 3; }
-        
-        /* The top flap */
         .env-flap { position: absolute; top: 0; left: 0; width: 0; height: 0; border-left: 130px solid transparent; border-right: 130px solid transparent; border-top: 100px solid #c5a028; transform-origin: top; transition: transform 0.6s ease; z-index: 4; }
-
-        /* Animation Classes */
         .env-wrapper.is-open .env-flap { transform: rotateX(180deg); z-index: 1; }
         .env-wrapper.is-open .env-paper { transform: translateY(-90px); height: 180px; z-index: 2; }
-
         .tap-hint { color: var(--gold); font-family: 'Poppins', sans-serif; font-size: 16px; margin-top: 30px; font-weight: bold; animation: bounce 1.5s infinite; transition: opacity 0.3s; }
         @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
+        /* TOAST NOTIFICATION */
+        #toast { position: fixed; bottom: -60px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--bg-dark-green); padding: 10px 20px; border-radius: 30px; font-family: 'Poppins', sans-serif; font-weight: bold; font-size: 14px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: bottom 0.4s ease; z-index: 1000; }
+        #toast.show { bottom: 30px; }
     </style>
 </head>
 <body>
@@ -102,81 +90,33 @@
         <div class="subtitle">The Ultimate OSSSC CRE ICDS Success Blueprint<br>🌟 Designed with infinite love for SHI from SIT 🤞❤️💚</div>
     </div>
 
+    <div class="progress-container">
+        <div class="progress-text">Our Journey: <span id="progress-percent">0%</span> Completed</div>
+        <div class="progress-bar-bg"><div class="progress-fill" id="progress-fill"></div></div>
+        <button class="sync-btn" onclick="manualSync()">📲 Send Progress to SIT</button>
+    </div>
+
     <div class="card">
         <div class="love-note">
             <h2 style="border: none; margin-bottom: 5px;">🌸 A Note from SIT 🌸</h2>
             <p>My dearest SHI,</p>
-            <p>I know the syllabus looks massive right now, but remember: this is a single exam, and you only need to conquer it <strong>one day at a time</strong>. You have a brilliant mind and an unstoppable spirit.</p>
-            <p>This guide isn't just a study plan; it’s a roadmap we are tackling together. Let's go claim this victory! ❤️💚🤞</p>
+            <p>I know the syllabus looks massive, but remember: you only need to conquer it <strong>one day at a time</strong>. Tap the checkbox when you finish a day so I can celebrate with you!</p>
+            <p>Tap any table row for a surprise letter. Let's claim this victory! ❤️💚🤞</p>
         </div>
-    </div>
-
-    <div class="card">
-        <h2>🗓️ The 5-Hour Split Architecture</h2>
-        <ul>
-            <li><strong>☀️ Day (2 Hrs):</strong> Arithmetic, Data Interpretation, and Reasoning.</li>
-            <li><strong>☕ Tea Break (15 M):</strong> Grab your tea, stretch, and text SIT!</li>
-            <li><strong>🌙 Night (3 Hrs):</strong> 
-                <br><span style="color:var(--emerald); font-weight:bold;">First 30 mins: Revise yesterday's study.</span>
-                <br>Next 2.5 Hrs: GS, English, Odia, Computer.
-            </li>
-            <li><strong>✍️ Practice (45 M):</strong> Immediate MCQ practice.</li>
-        </ul>
-        <p style="text-align: center; font-size: 11px; color: gray;"><em>*Tap any day below for a surprise letter! 💌*</em></p>
     </div>
 
     <div class="card">
         <h3>📊 Week 1: Foundations & Core</h3>
         <div class="table-container">
             <table>
-                <tr>
-                    <th style="width:15%">Day</th>
-                    <th style="width:30%">☀️ Day (2H)</th>
-                    <th style="width:35%">🌙 Night (3H)</th>
-                    <th style="width:20%">✍️ Practice</th>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 1</strong></td>
-                    <td>Number Sys</td>
-                    <td>Odisha History</td>
-                    <td>MCQs</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 2</strong></td>
-                    <td>Fractions</td>
-                    <td>English Parts</td>
-                    <td>Quiz <span class="tea-badge">☕</span></td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 3</strong></td>
-                    <td>Percentages</td>
-                    <td>Odia Spelling</td>
-                    <td>Problems</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 4</strong></td>
-                    <td>Percent Adv.</td>
-                    <td>Computer Hard</td>
-                    <td>Mix MCQs</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 5</strong></td>
-                    <td>Profit & Loss</td>
-                    <td>Static GK</td>
-                    <td>Sets</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 6</strong></td>
-                    <td>Profit Adv.</td>
-                    <td>English Tenses</td>
-                    <td>Drill <span class="tea-badge">☕</span></td>
-                </tr>
-                <tr class="interactive-row weekend-row" onclick="openModal('Get ready for our long video call wifey! 😏😋')">
-                    <td><strong>Day 7</strong></td>
-                    <td><strong>MOCK 1</strong></td>
-                    <td><strong>LONG CALL 😏</strong></td>
-                    <td>Analyze</td>
-                </tr>
+                <tr><th class="check-col">✓</th><th style="width:13%">Day</th><th style="width:30%">☀️ Day (2H)</th><th style="width:30%">🌙 Night (3H)</th><th style="width:20%">✍️ Practice</th></tr>
+                <tr class="interactive-row" id="row-1"><td class="check-col"><input type="checkbox" class="day-cb" data-day="1" onchange="toggleDay(this, 'Day 1')"></td><td class="data-cell" onclick="openModal()"><strong>Day 1</strong></td><td class="data-cell" onclick="openModal()">Number Sys</td><td class="data-cell" onclick="openModal()">Odisha Hist.</td><td class="data-cell" onclick="openModal()">MCQs</td></tr>
+                <tr class="interactive-row" id="row-2"><td class="check-col"><input type="checkbox" class="day-cb" data-day="2" onchange="toggleDay(this, 'Day 2')"></td><td class="data-cell" onclick="openModal()"><strong>Day 2</strong></td><td class="data-cell" onclick="openModal()">Fractions</td><td class="data-cell" onclick="openModal()">English Parts</td><td class="data-cell" onclick="openModal()">Quiz <span class="tea-badge">☕</span></td></tr>
+                <tr class="interactive-row" id="row-3"><td class="check-col"><input type="checkbox" class="day-cb" data-day="3" onchange="toggleDay(this, 'Day 3')"></td><td class="data-cell" onclick="openModal()"><strong>Day 3</strong></td><td class="data-cell" onclick="openModal()">Percentages</td><td class="data-cell" onclick="openModal()">Odia Spell.</td><td class="data-cell" onclick="openModal()">Problems</td></tr>
+                <tr class="interactive-row" id="row-4"><td class="check-col"><input type="checkbox" class="day-cb" data-day="4" onchange="toggleDay(this, 'Day 4')"></td><td class="data-cell" onclick="openModal()"><strong>Day 4</strong></td><td class="data-cell" onclick="openModal()">Percent Adv.</td><td class="data-cell" onclick="openModal()">Comp Hard.</td><td class="data-cell" onclick="openModal()">Mix MCQs</td></tr>
+                <tr class="interactive-row" id="row-5"><td class="check-col"><input type="checkbox" class="day-cb" data-day="5" onchange="toggleDay(this, 'Day 5')"></td><td class="data-cell" onclick="openModal()"><strong>Day 5</strong></td><td class="data-cell" onclick="openModal()">Profit/Loss</td><td class="data-cell" onclick="openModal()">Static GK</td><td class="data-cell" onclick="openModal()">Sets</td></tr>
+                <tr class="interactive-row" id="row-6"><td class="check-col"><input type="checkbox" class="day-cb" data-day="6" onchange="toggleDay(this, 'Day 6')"></td><td class="data-cell" onclick="openModal()"><strong>Day 6</strong></td><td class="data-cell" onclick="openModal()">Profit Adv.</td><td class="data-cell" onclick="openModal()">Eng Tenses</td><td class="data-cell" onclick="openModal()">Drill <span class="tea-badge">☕</span></td></tr>
+                <tr class="interactive-row weekend-row" id="row-7"><td class="check-col"><input type="checkbox" class="day-cb" data-day="7" onchange="toggleDay(this, 'Mock Test 1')"></td><td class="data-cell" onclick="openModal('Get ready for our long video call wifey! 😏😋')"><strong>Day 7</strong></td><td class="data-cell" onclick="openModal('Get ready for our long video call wifey! 😏😋')"><strong>MOCK 1</strong></td><td class="data-cell" onclick="openModal('Get ready for our long video call wifey! 😏😋')"><strong>LONG CALL 😏</strong></td><td class="data-cell" onclick="openModal('Get ready for our long video call wifey! 😏😋')">Analyze</td></tr>
             </table>
         </div>
     </div>
@@ -185,110 +125,30 @@
         <h3>📊 Week 2: Math & Logic</h3>
         <div class="table-container">
             <table>
-                <tr>
-                    <th style="width:15%">Day</th>
-                    <th style="width:30%">☀️ Day (2H)</th>
-                    <th style="width:35%">🌙 Night (3H)</th>
-                    <th style="width:20%">✍️ Practice</th>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 8</strong></td>
-                    <td>Ratios</td>
-                    <td>Constitution</td>
-                    <td>MCQs</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 9</strong></td>
-                    <td>Simple Int.</td>
-                    <td>Windows OS</td>
-                    <td>Sets <span class="tea-badge">☕</span></td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 10</strong></td>
-                    <td>Comp. Int.</td>
-                    <td>Odia Sandhi</td>
-                    <td>Drill</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 11</strong></td>
-                    <td>No. Series</td>
-                    <td>Subject-Verb</td>
-                    <td>Puzzles</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 12</strong></td>
-                    <td>Blood Rel.</td>
-                    <td>Odisha Geo.</td>
-                    <td>Quiz</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 13</strong></td>
-                    <td>Time & Work</td>
-                    <td>MS Word</td>
-                    <td>Drill <span class="tea-badge">☕</span></td>
-                </tr>
-                <tr class="interactive-row weekend-row" onclick="openModal('Weekend reward time! Long video call! 😏😋')">
-                    <td><strong>Day 14</strong></td>
-                    <td><strong>MOCK 2</strong></td>
-                    <td><strong>LONG CALL 😏</strong></td>
-                    <td>Formulas</td>
-                </tr>
+                <tr><th class="check-col">✓</th><th style="width:13%">Day</th><th style="width:30%">☀️ Day (2H)</th><th style="width:30%">🌙 Night (3H)</th><th style="width:20%">✍️ Practice</th></tr>
+                <tr class="interactive-row" id="row-8"><td class="check-col"><input type="checkbox" class="day-cb" data-day="8" onchange="toggleDay(this, 'Day 8')"></td><td class="data-cell" onclick="openModal()"><strong>Day 8</strong></td><td class="data-cell" onclick="openModal()">Ratios</td><td class="data-cell" onclick="openModal()">Constitution</td><td class="data-cell" onclick="openModal()">MCQs</td></tr>
+                <tr class="interactive-row" id="row-9"><td class="check-col"><input type="checkbox" class="day-cb" data-day="9" onchange="toggleDay(this, 'Day 9')"></td><td class="data-cell" onclick="openModal()"><strong>Day 9</strong></td><td class="data-cell" onclick="openModal()">Simple Int.</td><td class="data-cell" onclick="openModal()">Windows OS</td><td class="data-cell" onclick="openModal()">Sets <span class="tea-badge">☕</span></td></tr>
+                <tr class="interactive-row" id="row-10"><td class="check-col"><input type="checkbox" class="day-cb" data-day="10" onchange="toggleDay(this, 'Day 10')"></td><td class="data-cell" onclick="openModal()"><strong>Day 10</strong></td><td class="data-cell" onclick="openModal()">Comp. Int.</td><td class="data-cell" onclick="openModal()">Odia Sandhi</td><td class="data-cell" onclick="openModal()">Drill</td></tr>
+                <tr class="interactive-row" id="row-11"><td class="check-col"><input type="checkbox" class="day-cb" data-day="11" onchange="toggleDay(this, 'Day 11')"></td><td class="data-cell" onclick="openModal()"><strong>Day 11</strong></td><td class="data-cell" onclick="openModal()">No. Series</td><td class="data-cell" onclick="openModal()">Subj-Verb</td><td class="data-cell" onclick="openModal()">Puzzles</td></tr>
+                <tr class="interactive-row" id="row-12"><td class="check-col"><input type="checkbox" class="day-cb" data-day="12" onchange="toggleDay(this, 'Day 12')"></td><td class="data-cell" onclick="openModal()"><strong>Day 12</strong></td><td class="data-cell" onclick="openModal()">Blood Rel.</td><td class="data-cell" onclick="openModal()">Odisha Geo.</td><td class="data-cell" onclick="openModal()">Quiz</td></tr>
+                <tr class="interactive-row" id="row-13"><td class="check-col"><input type="checkbox" class="day-cb" data-day="13" onchange="toggleDay(this, 'Day 13')"></td><td class="data-cell" onclick="openModal()"><strong>Day 13</strong></td><td class="data-cell" onclick="openModal()">Time/Work</td><td class="data-cell" onclick="openModal()">MS Word</td><td class="data-cell" onclick="openModal()">Drill <span class="tea-badge">☕</span></td></tr>
+                <tr class="interactive-row weekend-row" id="row-14"><td class="check-col"><input type="checkbox" class="day-cb" data-day="14" onchange="toggleDay(this, 'Mock Test 2')"></td><td class="data-cell" onclick="openModal('Weekend reward time! Long video call! 😏😋')"><strong>Day 14</strong></td><td class="data-cell" onclick="openModal('Weekend reward time! Long video call! 😏😋')"><strong>MOCK 2</strong></td><td class="data-cell" onclick="openModal('Weekend reward time! Long video call! 😏😋')"><strong>LONG CALL 😏</strong></td><td class="data-cell" onclick="openModal('Weekend reward time! Long video call! 😏😋')">Formulas</td></tr>
             </table>
         </div>
     </div>
-
-    <div class="card">
+    
+        <div class="card">
         <h3>📊 Week 3: Geometry & Sciences</h3>
         <div class="table-container">
             <table>
-                <tr>
-                    <th style="width:15%">Day</th>
-                    <th style="width:30%">☀️ Day (2H)</th>
-                    <th style="width:35%">🌙 Night (3H)</th>
-                    <th style="width:20%">✍️ Practice</th>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 15</strong></td>
-                    <td>Speed/Dist.</td>
-                    <td>Human Body</td>
-                    <td>MCQs</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 16</strong></td>
-                    <td>Averages</td>
-                    <td>MS Excel</td>
-                    <td>Drill <span class="tea-badge">☕</span></td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 17</strong></td>
-                    <td>Syllogisms</td>
-                    <td>Odia Samasa</td>
-                    <td>Q's</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 18</strong></td>
-                    <td>2D Mensur.</td>
-                    <td>Active/Pass.</td>
-                    <td>2D Drill</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 19</strong></td>
-                    <td>3D Mensur.</td>
-                    <td>MS PowerPt.</td>
-                    <td>3D Drill</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 20</strong></td>
-                    <td>Seating Arr.</td>
-                    <td>Indian Hist.</td>
-                    <td>Quiz</td>
-                </tr>
-                <tr class="interactive-row weekend-row" onclick="openModal('You earned this break! Long video call! 😏😋')">
-                    <td><strong>Day 21</strong></td>
-                    <td><strong>MOCK 3</strong></td>
-                    <td><strong>LONG CALL 😏</strong></td>
-                    <td>Review</td>
-                </tr>
+                <tr><th class="check-col">✓</th><th style="width:13%">Day</th><th style="width:30%">☀️ Day (2H)</th><th style="width:30%">🌙 Night (3H)</th><th style="width:20%">✍️ Practice</th></tr>
+                <tr class="interactive-row" id="row-15"><td class="check-col"><input type="checkbox" class="day-cb" data-day="15" onchange="toggleDay(this, 'Day 15')"></td><td class="data-cell" onclick="openModal()"><strong>Day 15</strong></td><td class="data-cell" onclick="openModal()">Speed/Dist.</td><td class="data-cell" onclick="openModal()">Human Body</td><td class="data-cell" onclick="openModal()">MCQs</td></tr>
+                <tr class="interactive-row" id="row-16"><td class="check-col"><input type="checkbox" class="day-cb" data-day="16" onchange="toggleDay(this, 'Day 16')"></td><td class="data-cell" onclick="openModal()"><strong>Day 16</strong></td><td class="data-cell" onclick="openModal()">Averages</td><td class="data-cell" onclick="openModal()">MS Excel</td><td class="data-cell" onclick="openModal()">Drill <span class="tea-badge">☕</span></td></tr>
+                <tr class="interactive-row" id="row-17"><td class="check-col"><input type="checkbox" class="day-cb" data-day="17" onchange="toggleDay(this, 'Day 17')"></td><td class="data-cell" onclick="openModal()"><strong>Day 17</strong></td><td class="data-cell" onclick="openModal()">Syllogisms</td><td class="data-cell" onclick="openModal()">Odia Samasa</td><td class="data-cell" onclick="openModal()">Q's</td></tr>
+                <tr class="interactive-row" id="row-18"><td class="check-col"><input type="checkbox" class="day-cb" data-day="18" onchange="toggleDay(this, 'Day 18')"></td><td class="data-cell" onclick="openModal()"><strong>Day 18</strong></td><td class="data-cell" onclick="openModal()">2D Mensur.</td><td class="data-cell" onclick="openModal()">Active/Pass.</td><td class="data-cell" onclick="openModal()">2D Drill</td></tr>
+                <tr class="interactive-row" id="row-19"><td class="check-col"><input type="checkbox" class="day-cb" data-day="19" onchange="toggleDay(this, 'Day 19')"></td><td class="data-cell" onclick="openModal()"><strong>Day 19</strong></td><td class="data-cell" onclick="openModal()">3D Mensur.</td><td class="data-cell" onclick="openModal()">MS PowerPt.</td><td class="data-cell" onclick="openModal()">3D Drill</td></tr>
+                <tr class="interactive-row" id="row-20"><td class="check-col"><input type="checkbox" class="day-cb" data-day="20" onchange="toggleDay(this, 'Day 20')"></td><td class="data-cell" onclick="openModal()"><strong>Day 20</strong></td><td class="data-cell" onclick="openModal()">Seating Arr.</td><td class="data-cell" onclick="openModal()">Indian Hist.</td><td class="data-cell" onclick="openModal()">Quiz</td></tr>
+                <tr class="interactive-row weekend-row" id="row-21"><td class="check-col"><input type="checkbox" class="day-cb" data-day="21" onchange="toggleDay(this, 'Mock Test 3')"></td><td class="data-cell" onclick="openModal('You earned this break! Long video call! 😏😋')"><strong>Day 21</strong></td><td class="data-cell" onclick="openModal('You earned this break! Long video call! 😏😋')"><strong>MOCK 3</strong></td><td class="data-cell" onclick="openModal('You earned this break! Long video call! 😏😋')"><strong>LONG CALL 😏</strong></td><td class="data-cell" onclick="openModal('You earned this break! Long video call! 😏😋')">Review</td></tr>
             </table>
         </div>
     </div>
@@ -297,65 +157,16 @@
         <h3>📊 Week 4: Final Polish</h3>
         <div class="table-container">
             <table>
-                <tr>
-                    <th style="width:15%">Day</th>
-                    <th style="width:30%">☀️ Day (2H)</th>
-                    <th style="width:35%">🌙 Night (3H)</th>
-                    <th style="width:20%">✍️ Practice</th>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 22</strong></td>
-                    <td>DI: Graphs</td>
-                    <td>Current Aff.</td>
-                    <td>DI Sets</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 23</strong></td>
-                    <td>DI: Pie Charts</td>
-                    <td>Odisha Gov.</td>
-                    <td>DI Sets</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 24</strong></td>
-                    <td>Basic Algebra</td>
-                    <td>Direct/Indir.</td>
-                    <td>Quiz</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 25</strong></td>
-                    <td>Patterns</td>
-                    <td>Odia Idioms</td>
-                    <td>Reasoning</td>
-                </tr>
-                <tr class="interactive-row" onclick="openModal()">
-                    <td><strong>Day 26</strong></td>
-                    <td>Math Speed</td>
-                    <td>Cyber Sec.</td>
-                    <td>Mixed Run</td>
-                </tr>
-                <tr class="interactive-row weekend-row" onclick="openModal('Final stretch baby! You got this! 🔥')">
-                    <td><strong>Day 27</strong></td>
-                    <td><strong>MOCK 4</strong></td>
-                    <td>Error Analysis</td>
-                    <td>Fix spots</td>
-                </tr>
-                <tr class="interactive-row weekend-row" onclick="openModal('Almost exam day! I am so proud of you! ❤️')">
-                    <td><strong>Day 28</strong></td>
-                    <td><strong>MOCK 5</strong></td>
-                    <td>Rules Revise</td>
-                    <td>Formulas</td>
-                </tr>
+                <tr><th class="check-col">✓</th><th style="width:13%">Day</th><th style="width:30%">☀️ Day (2H)</th><th style="width:30%">🌙 Night (3H)</th><th style="width:20%">✍️ Practice</th></tr>
+                <tr class="interactive-row" id="row-22"><td class="check-col"><input type="checkbox" class="day-cb" data-day="22" onchange="toggleDay(this, 'Day 22')"></td><td class="data-cell" onclick="openModal()"><strong>Day 22</strong></td><td class="data-cell" onclick="openModal()">DI: Graphs</td><td class="data-cell" onclick="openModal()">Current Aff.</td><td class="data-cell" onclick="openModal()">DI Sets</td></tr>
+                <tr class="interactive-row" id="row-23"><td class="check-col"><input type="checkbox" class="day-cb" data-day="23" onchange="toggleDay(this, 'Day 23')"></td><td class="data-cell" onclick="openModal()"><strong>Day 23</strong></td><td class="data-cell" onclick="openModal()">DI: Pie Charts</td><td class="data-cell" onclick="openModal()">Odisha Gov.</td><td class="data-cell" onclick="openModal()">DI Sets</td></tr>
+                <tr class="interactive-row" id="row-24"><td class="check-col"><input type="checkbox" class="day-cb" data-day="24" onchange="toggleDay(this, 'Day 24')"></td><td class="data-cell" onclick="openModal()"><strong>Day 24</strong></td><td class="data-cell" onclick="openModal()">Basic Algebra</td><td class="data-cell" onclick="openModal()">Direct/Indir.</td><td class="data-cell" onclick="openModal()">Quiz</td></tr>
+                <tr class="interactive-row" id="row-25"><td class="check-col"><input type="checkbox" class="day-cb" data-day="25" onchange="toggleDay(this, 'Day 25')"></td><td class="data-cell" onclick="openModal()"><strong>Day 25</strong></td><td class="data-cell" onclick="openModal()">Patterns</td><td class="data-cell" onclick="openModal()">Odia Idioms</td><td class="data-cell" onclick="openModal()">Reasoning</td></tr>
+                <tr class="interactive-row" id="row-26"><td class="check-col"><input type="checkbox" class="day-cb" data-day="26" onchange="toggleDay(this, 'Day 26')"></td><td class="data-cell" onclick="openModal()"><strong>Day 26</strong></td><td class="data-cell" onclick="openModal()">Math Speed</td><td class="data-cell" onclick="openModal()">Cyber Sec.</td><td class="data-cell" onclick="openModal()">Mixed Run</td></tr>
+                <tr class="interactive-row weekend-row" id="row-27"><td class="check-col"><input type="checkbox" class="day-cb" data-day="27" onchange="toggleDay(this, 'Mock Test 4')"></td><td class="data-cell" onclick="openModal('Final stretch baby! You got this! 🔥')"><strong>Day 27</strong></td><td class="data-cell" onclick="openModal('Final stretch baby! You got this! 🔥')"><strong>MOCK 4</strong></td><td class="data-cell" onclick="openModal('Final stretch baby! You got this! 🔥')">Error Analysis</td><td class="data-cell" onclick="openModal('Final stretch baby! You got this! 🔥')">Fix spots</td></tr>
+                <tr class="interactive-row weekend-row" id="row-28"><td class="check-col"><input type="checkbox" class="day-cb" data-day="28" onchange="toggleDay(this, 'Mock Test 5')"></td><td class="data-cell" onclick="openModal('Almost exam day! I am so proud of you! ❤️')"><strong>Day 28</strong></td><td class="data-cell" onclick="openModal('Almost exam day! I am so proud of you! ❤️')"><strong>MOCK 5</strong></td><td class="data-cell" onclick="openModal('Almost exam day! I am so proud of you! ❤️')">Rules Revise</td><td class="data-cell" onclick="openModal('Almost exam day! I am so proud of you! ❤️')">Formulas</td></tr>
             </table>
         </div>
-    </div>
-
-    <div class="card">
-        <h2>💡 Strategy for our success:</h2>
-        <ol>
-            <li><strong>The Error Notebook:</strong> Write down missed questions and review them on Sundays.</li>
-            <li><strong>Accuracy Over Speed:</strong> This is a single-stage exam. Accuracy is everything.</li>
-            <li><strong>You've Got This:</strong> Trust the process, take tea breaks, and we will win together.</li>
-        </ol>
     </div>
 
     <div class="pglu-note">
@@ -365,23 +176,117 @@
     </div>
 
     <button class="fab" onclick="openModal()">💌</button>
+    <div id="toast">Synced with SHI's progress! ❤️</div>
 
     <div class="modal-overlay" id="letter-modal" onclick="closeModal(event)">
         <span class="close-btn" onclick="forceClose()">×</span>
-        
         <div class="env-wrapper" id="env-wrapper" onclick="openEnvelope()">
             <div class="env-back"></div>
-            <div class="env-paper">
-                <span id="paper-text">Message goes here</span>
-            </div>
+            <div class="env-paper"><span id="paper-text">Message goes here</span></div>
             <div class="env-flap"></div>
             <div class="env-front"></div>
         </div>
-        
         <div class="tap-hint" id="tap-hint">Tap the envelope to open! 💌</div>
     </div>
 
     <script>
+        const totalDays = 28;
+        
+        // 1. Core Logic & Magic Sync
+        function loadProgress() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const syncData = urlParams.get('progress');
+            
+            if (syncData !== null) {
+                for(let i=1; i<=totalDays; i++) localStorage.removeItem('sitshi_day_' + i);
+                if (syncData !== "") {
+                    const completedDays = syncData.split(',');
+                    completedDays.forEach(d => localStorage.setItem('sitshi_day_' + d, 'true'));
+                }
+                window.history.replaceState({}, document.title, window.location.pathname);
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 3000);
+            }
+
+            let completedCount = 0;
+            const checkboxes = document.querySelectorAll('.day-cb');
+            checkboxes.forEach(cb => {
+                const dayNum = cb.getAttribute('data-day');
+                if (localStorage.getItem('sitshi_day_' + dayNum) === 'true') {
+                    cb.checked = true;
+                    document.getElementById('row-' + dayNum).classList.add('completed-row');
+                    completedCount++;
+                }
+            });
+            updateProgressBar(completedCount);
+            
+            setInterval(check11PM, 60000); 
+            check11PM(); 
+        }
+
+        function toggleDay(checkbox, dayName) {
+            const dayNum = checkbox.getAttribute('data-day');
+            const row = document.getElementById('row-' + dayNum);
+            
+            if (checkbox.checked) {
+                localStorage.setItem('sitshi_day_' + dayNum, 'true');
+                row.classList.add('completed-row');
+                setTimeout(() => {
+                    if(confirm(`Amazing job completing ${dayName}! 🎉\n\nDo you want to send a quick sync update to Pglu?`)) {
+                        sendWhatsAppReport(dayName);
+                    }
+                }, 300);
+            } else {
+                localStorage.removeItem('sitshi_day_' + dayNum);
+                row.classList.remove('completed-row');
+            }
+            updateProgressBar(document.querySelectorAll('.day-cb:checked').length);
+        }
+
+        function updateProgressBar(completed) {
+            const percentage = Math.round((completed / totalDays) * 100);
+            document.getElementById('progress-percent').innerText = percentage + '%';
+            document.getElementById('progress-fill').style.width = percentage + '%';
+        }
+
+        // 2. WhatsApp Magic Link Generator
+        function generateMagicLink() {
+            const completed = [];
+            for(let i=1; i<=totalDays; i++) {
+                if (localStorage.getItem('sitshi_day_' + i) === 'true') completed.push(i);
+            }
+            const baseUrl = window.location.origin + window.location.pathname;
+            return `${baseUrl}?progress=${completed.join(',')}`;
+        }
+
+        function sendWhatsAppReport(contextMessage) {
+            const magicLink = generateMagicLink();
+            const msg = `Pglu! I just finished ${contextMessage}! ✅❤️💚\n\nClick here to sync your screen with my live progress:\n${magicLink}`;
+            window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`);
+        }
+
+        function manualSync() {
+            sendWhatsAppReport("my targets for today");
+        }
+
+        // 3. The 11 PM Auto Alarm
+        function check11PM() {
+            const now = new Date();
+            const hours = now.getHours();
+            const dateStr = now.toDateString();
+            
+            if (hours === 23 && localStorage.getItem('lastAlarmDate') !== dateStr) {
+                localStorage.setItem('lastAlarmDate', dateStr); 
+                if(confirm("It's 11 PM! Time to report your daily progress to Pglu! ❤️\n\nSend him your magic sync link now?")) {
+                    sendWhatsAppReport("today's study target");
+                }
+            }
+        }
+
+        window.onload = loadProgress;
+
+        // 4. Envelope Logic
         const notes = [
             "i am always with you 😉😘",
             "Carry On Bachaa 🥰😌🫶",
@@ -400,44 +305,25 @@
         const paperText = document.getElementById('paper-text');
         const tapHint = document.getElementById('tap-hint');
 
-        // Opens the dark screen with the closed envelope
         function openModal(specificMessage) {
-            // Pick message
             let message = specificMessage || notes[Math.floor(Math.random() * notes.length)];
             paperText.innerHTML = message;
-            
-            // Reset Envelope to Closed
             envWrapper.classList.remove('is-open');
             tapHint.style.opacity = '1';
-            
-            // Show Overlay
             modal.classList.add('active');
-            
-            // Optional Haptic
             if (navigator.vibrate) navigator.vibrate(50);
         }
 
-        // Tapping the envelope opens the flap and slides paper out
         function openEnvelope() {
             if (!envWrapper.classList.contains('is-open')) {
                 envWrapper.classList.add('is-open');
-                tapHint.style.opacity = '0'; // Hide the "Tap to open" text
-                
+                tapHint.style.opacity = '0'; 
                 if (navigator.vibrate) navigator.vibrate([50, 100, 50]);
             }
         }
 
-        // Clicking outside the envelope closes it
-        function closeModal(event) {
-            if (event.target === modal) {
-                modal.classList.remove('active');
-            }
-        }
-
-        // The X button
-        function forceClose() {
-            modal.classList.remove('active');
-        }
+        function closeModal(event) { if (event.target === modal) modal.classList.remove('active'); }
+        function forceClose() { modal.classList.remove('active'); }
     </script>
 </body>
 </html>
