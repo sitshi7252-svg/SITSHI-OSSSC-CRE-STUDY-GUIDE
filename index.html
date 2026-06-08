@@ -4,417 +4,513 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SITSHI FOREVER - Success Blueprint</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --blush-pink: #FFF0F2;
-            --mint-green: #E2FCE0;
-            --soft-gold: #d4af37;
-            --deep-gold: #c5a028;
-            --text-dark: #333333;
-            --white-card: rgba(255, 255, 255, 0.9);
-            --pink-accent: #ff8fa3;
+            --bg-dark-green: #022c22;
+            --bg-forest-green: #064e3b;
+            --emerald: #10b981;
+            --light-mint: #ecfdf5;
+            --sage: #d1fae5;
+            --gold: #fbbf24;
+            --text-dark: #064e3b;
+            --love-red: #f43f5e;
         }
-        
+
         body {
-            background-color: var(--blush-pink);
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            /* Beautiful deep green gradient background */
+            background: linear-gradient(135deg, var(--bg-dark-green), var(--bg-forest-green));
+            font-family: 'Quicksand', sans-serif;
             color: var(--text-dark);
             margin: 0;
-            padding: 15px;
+            padding: 20px 15px;
+            padding-bottom: 100px; /* Space for the floating button */
             line-height: 1.6;
         }
 
-        h1 {
-            color: var(--soft-gold);
+        .header {
             text-align: center;
-            font-size: 24px;
-            text-shadow: 1px 1px 2px #fff;
+            color: var(--light-mint);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--gold);
+            font-size: 26px;
             margin-bottom: 5px;
-            line-height: 1.3;
-        }
-
-        h2 {
-            color: var(--pink-accent);
-            font-size: 20px;
-            margin-top: 25px;
-            border-bottom: 2px solid var(--pink-accent);
-            padding-bottom: 5px;
-        }
-
-        h3 {
-            color: var(--text-dark);
-            font-size: 16px;
-            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .subtitle {
-            text-align: center;
             font-size: 14px;
-            font-style: italic;
-            margin-bottom: 25px;
-            color: var(--text-dark);
+            opacity: 0.9;
         }
 
         .card {
-            background-color: var(--white-card);
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 2px solid var(--soft-gold);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border-top: 5px solid var(--emerald);
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--emerald);
+            font-size: 20px;
+            margin-top: 0;
+            border-bottom: 2px dashed var(--sage);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 17px;
+            color: var(--bg-forest-green);
+            margin-bottom: 10px;
         }
 
         .love-note {
-            background-color: #fff;
-            border-left: 5px solid var(--pink-accent);
+            background: linear-gradient(to right, var(--sage), var(--light-mint));
+            border-left: 6px solid var(--emerald);
             padding: 15px;
-            margin-bottom: 20px;
-            font-style: italic;
             border-radius: 0 15px 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            font-style: italic;
+            font-weight: 500;
         }
 
-        ul {
-            padding-left: 20px;
-        }
-
-        li {
-            margin-bottom: 10px;
+        /* Table Styling */
+        .table-container {
+            overflow-x: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 10px;
-            margin-bottom: 25px;
             font-size: 13px;
-            background-color: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        th, td {
-            padding: 10px;
-            border: 1px solid #f0e6d2;
-            text-align: left;
-            vertical-align: top;
+            background-color: white;
+            min-width: 500px; /* Ensures it scrolls smoothly on very small phones */
         }
 
         th {
-            background-color: var(--mint-green);
-            color: var(--text-dark);
-            font-weight: bold;
-            border-bottom: 2px solid var(--soft-gold);
+            background-color: var(--emerald);
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-family: 'Poppins', sans-serif;
         }
 
-        tr:nth-child(even) {
-            background-color: #fafafa;
+        td {
+            padding: 12px;
+            border-bottom: 1px solid var(--sage);
+            vertical-align: top;
         }
 
-        .goal-text {
-            font-size: 13px;
-            font-style: italic;
-            color: #555;
-            margin-top: -5px;
-            margin-bottom: 15px;
-        }
-
-        .highlight-row {
-            background-color: #fff9e6 !important;
-            font-weight: bold;
+        /* INTERACTIVE ROW EFFECT */
+        .interactive-row {
+            transition: all 0.2s ease;
+            cursor: pointer;
         }
         
+        .interactive-row:hover, .interactive-row:active {
+            background-color: var(--sage);
+            transform: scale(0.99);
+        }
+
+        .weekend-row {
+            background-color: #fef3c7 !important;
+            font-weight: bold;
+            color: #92400e;
+        }
+
+        .tea-badge {
+            background-color: var(--sage);
+            color: var(--bg-forest-green);
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 12px;
+        }
+
         .pglu-note {
             text-align: center;
-            margin-top: 30px;
-            margin-bottom: 30px;
+            margin-top: 40px;
         }
-        
+
         .pglu-text {
-            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
             font-weight: bold;
-            color: var(--pink-accent);
-            background-color: var(--white-card);
-            padding: 15px 25px;
+            color: var(--light-mint);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
             border-radius: 20px;
-            border: 2px dashed var(--pink-accent);
+            border: 2px solid var(--emerald);
             display: inline-block;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
         }
+
+        /* POPUP TOAST SYSTEM */
+        #toast-container {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--text-dark);
+            color: var(--light-mint);
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            white-space: nowrap;
+            border: 2px solid var(--emerald);
+        }
+
+        #toast-container.show {
+            opacity: 1;
+            visibility: visible;
+            bottom: 50px;
+        }
+
+        /* FLOATING LOVE BUTTON */
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 20px;
+            background-color: var(--love-red);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.5);
+            cursor: pointer;
+            z-index: 100;
+            animation: pulse 2s infinite;
+            border: none;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7); }
+            70% { transform: scale(1.1); box-shadow: 0 0 0 15px rgba(244, 63, 94, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+        }
+
     </style>
 </head>
 <body>
 
-    <h1>💖 SITSHI FOREVER: THE ULTIMATE OSSSC CRE SUCCESS BLUEPRINT 💖</h1>
-    <div class="subtitle">🌟 Custom tailored for SHI with infinite love from SIT 🤞❤️💚</div>
-
-    <div class="love-note">
-        <h2 style="margin-top: 0; border: none; color: var(--pink-accent);">🌸 A Note from SIT Before You Begin 🌸</h2>
-        <p>My dearest SHI,</p>
-        <p>I know the syllabus looks like a massive mountain right now, and starting from absolute scratch can feel overwhelming. But remember: this is a single exam, a single hurdle, and you only need to conquer it <strong>one day at a time</strong>. You have a brilliant mind, an unstoppable spirit, and a work ethic that inspires me every single day.</p>
-        <p>This guide isn't just a study plan; it’s a roadmap we are tackling together. I am right here beside you through every difficult math problem, every history fact, and every late-night session. You don't have to be perfect from Day 1—you just have to show up. I believe in you completely, my love. Let's go claim this victory!</p>
-        <p><strong>SITSHI FOREVER</strong> ❤️💚🤞</p>
+    <div class="header">
+        <h1>💖 SITSHI FOREVER 💖</h1>
+        <div class="subtitle">The Ultimate OSSSC CRE ICDS Success Blueprint<br>🌟 Designed with infinite love for SHI from SIT 🤞❤️💚</div>
     </div>
 
     <div class="card">
-        <h3 style="color: var(--soft-gold); font-size: 18px; margin-top: 0;">👑 The Golden Rules for My Queen:</h3>
-        <ul>
-            <li><strong>Protect Your Peace:</strong> If a topic gets frustrating, step back, take a deep breath, and remember that progress isn't linear.</li>
-            <li><strong>Never Skip the Fuel:</strong> Your brain needs energy! The snack breaks built into this schedule are absolutely non-negotiable. 🍉🍪</li>
-            <li><strong>The "SIT" Hotline is Always Open:</strong> Whenever the break hits, or if you just need a quick reminder of how incredible you are, my phone is right here waiting for your message. 📱💬</li>
-        </ul>
+        <div class="love-note">
+            <h2 style="border: none; margin-bottom: 5px;">🌸 A Note from SIT 🌸</h2>
+            <p>My dearest SHI,</p>
+            <p>I know the syllabus looks like a massive mountain right now, but remember: this is a single exam, a single hurdle, and you only need to conquer it <strong>one day at a time</strong>. You have a brilliant mind and an unstoppable spirit.</p>
+            <p>This guide isn't just a study plan; it’s a roadmap we are tackling together. Tap on any row in your schedule below whenever you need a reminder of who is cheering for you. Let's go claim this victory! ❤️💚🤞</p>
+        </div>
     </div>
 
-    <h2>🗓️ The Daily Routine Architecture</h2>
-    <p>To conquer this single-stage exam seamlessly without burning out, we are using the <strong>5-Hour Split Method</strong>:</p>
-    <ul>
-        <li><strong>☀️ Day Session (2 Hours):</strong> Arithmetic, Data Interpretation, and Logical Reasoning. <em>(Best for sharp, high-energy math focus).</em></li>
-        <li><strong>🍉 Snack & Love Break (15 Mins):</strong> Grab a delicious snack and send a sweet text message to SIT! 💬</li>
-        <li><strong>🌙 Night Session (3 Hours):</strong> <strong><em>First 30 minutes dedicated to revising the previous day's study</em></strong>, then focus on General Studies, English, Odia Grammar, and Computer Knowledge.</li>
-        <li><strong>✍️ Lock-In Practice Block (45 Minutes):</strong> Immediate topic-wise MCQ practice right after the night session to lock the information into your brain.</li>
-    </ul>
+    <div class="card">
+        <h2>🗓️ The 5-Hour Split Architecture</h2>
+        <ul>
+            <li><strong>☀️ Day Session (2 Hrs):</strong> Arithmetic, Data Interpretation, and Reasoning. <em>(High-energy math focus).</em></li>
+            <li><strong>☕ Tea & Love Break (15 Mins):</strong> Grab your tea, stretch, and send a sweet text message to SIT!</li>
+            <li><strong>🌙 Night Session (3 Hrs):</strong> 
+                <br><span style="color:var(--emerald); font-weight:bold;">First 30 mins: Revise yesterday's study.</span>
+                <br>Next 2.5 Hrs: General Studies, English, Odia, Computer.
+            </li>
+            <li><strong>✍️ Lock-In Practice (45 Mins):</strong> Immediate MCQ practice right after the night session to lock the info into your brain.</li>
+        </ul>
+        <p style="text-align: center; font-size: 12px; color: gray;"><em>*Tap any row in the tables below for a little surprise!*</em></p>
+    </div>
 
-    <h2>📅 The 30-Day Day-by-Day Master Schedule</h2>
+    <div class="card">
+        <h3>📊 Week 1: Foundations & Core Grammar</h3>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Day</th>
+                    <th>☀️ Day (2 Hrs)</th>
+                    <th>🌙 Night (3 Hrs inc. Revision)</th>
+                    <th>✍️ Practice</th>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 1</strong></td>
+                    <td>Number System</td>
+                    <td>Odisha History</td>
+                    <td>MCQs + Text SIT 💚</td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 2</strong></td>
+                    <td>Fractions & Decimals</td>
+                    <td>English: Parts of Speech</td>
+                    <td>Quiz + <span class="tea-badge">Tea ☕</span></td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 3</strong></td>
+                    <td>Percentage Basics</td>
+                    <td>Odia: Spelling (ଭ୍ରମ ସଂଶୋଧନ)</td>
+                    <td>Problems + Text ❤️</td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 4</strong></td>
+                    <td>Percentage Adv.</td>
+                    <td>Computer: Hardware</td>
+                    <td>Mixed MCQs</td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 5</strong></td>
+                    <td>Profit & Loss</td>
+                    <td>Static GK: National Parks</td>
+                    <td>Sets + Text SIT 🥰</td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 6</strong></td>
+                    <td>Profit & Loss Adv.</td>
+                    <td>English: Tenses</td>
+                    <td>Drill + <span class="tea-badge">Tea ☕</span></td>
+                </tr>
+                <tr class="interactive-row weekend-row" onclick="showSpecificNote('Get ready for our long video call wifey! 😏😋')">
+                    <td><strong>Day 7</strong></td>
+                    <td><strong>MOCK TEST 1</strong></td>
+                    <td><strong>LONG VIDEO CALL 😏😁😋</strong></td>
+                    <td>Analysis</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-    <h3>📊 Week 1: Foundations, Numbers & Core Grammar</h3>
-    <p class="goal-text">Goal: Master high-weightage arithmetic foundations and secure easy language marks.</p>
-    <table>
-        <tr>
-            <th>Day</th>
-            <th>☀️ Day Session (2 Hrs)</th>
-            <th>🌙 Night Session (3 Hrs includes Revision)</th>
-            <th>✍️ 45-Min Practice & SIT Check-in</th>
-        </tr>
-        <tr>
-            <td><strong>Day 1</strong></td>
-            <td>Number System & Simplification</td>
-            <td>Odisha History: Ancient Kingdoms</td>
-            <td>Number System MCQs + Text SIT 💚</td>
-        </tr>
-        <tr>
-            <td><strong>Day 2</strong></td>
-            <td>Fractions, Decimals & HCF/LCM</td>
-            <td>English: Parts of Speech Rules</td>
-            <td>Fractions Quiz + Snack with SIT 🍉</td>
-        </tr>
-        <tr>
-            <td><strong>Day 3</strong></td>
-            <td>Percentage Basics & Conversions</td>
-            <td>Odia: Spelling Accuracy (ଭ୍ରମ ସଂଶୋଧନ)</td>
-            <td>Percentage Problems + Message SIT ❤️</td>
-        </tr>
-        <tr>
-            <td><strong>Day 4</strong></td>
-            <td>Advanced Percentage Word Problems</td>
-            <td>Computer: Hardware & Memory Types</td>
-            <td>Mixed Percentage & Computer MCQs</td>
-        </tr>
-        <tr>
-            <td><strong>Day 5</strong></td>
-            <td>Profit, Loss & Basic Discounts</td>
-            <td>Static GK: National Parks & Sanctuaries</td>
-            <td>Profit & Loss Sets + Text SIT 🥰</td>
-        </tr>
-        <tr>
-            <td><strong>Day 6</strong></td>
-            <td>Advanced Profit & Loss Questions</td>
-            <td>English: Tenses & Common Errors</td>
-            <td>Tenses Drill + Tea break 🫖</td>
-        </tr>
-        <tr class="highlight-row">
-            <td><strong>Day 7</strong></td>
-            <td><strong>WEEK 1 REVIEW DAY</strong></td>
-            <td>Review weak notes & math shortcuts</td>
-            <td><strong>FULL MOCK TEST 1 + Celebration</strong> 🥂</td>
-        </tr>
-    </table>
+    <div class="card">
+        <h3>📊 Week 2: Functional Math & Logic</h3>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Day</th>
+                    <th>☀️ Day (2 Hrs)</th>
+                    <th>🌙 Night (3 Hrs inc. Revision)</th>
+                    <th>✍️ Practice</th>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 8</strong></td>
+                    <td>Ratio & Partnership</td>
+                    <td>Indian Constitution</td>
+                    <td>MCQs + Ping SIT</td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 9</strong></td>
+                    <td>Simple Interest</td>
+                    <td>Windows OS Shortcuts</td>
+                    <td>Sets + <span class="tea-badge">Tea ☕</span></td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 10</strong></td>
+                    <td>Compound Interest</td>
+                    <td>Odia: Sandhi</td>
+                    <td>Drill + Text 💚</td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 11</strong></td>
+                    <td>Number Series</td>
+                    <td>English: Subject-Verb</td>
+                    <td>Puzzles + Call</td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 12</strong></td>
+                    <td>Blood Relations</td>
+                    <td>Odisha Geography</td>
+                    <td>Quiz + Text ❤️</td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 13</strong></td>
+                    <td>Time & Work</td>
+                    <td>MS Word Functions</td>
+                    <td>Practice + <span class="tea-badge">Tea ☕</span></td>
+                </tr>
+                <tr class="interactive-row weekend-row" onclick="showSpecificNote('Weekend reward time! Long video call! 😏😋')">
+                    <td><strong>Day 14</strong></td>
+                    <td><strong>MOCK TEST 2</strong></td>
+                    <td><strong>LONG VIDEO CALL 😏😁😋</strong></td>
+                    <td>Revise Formulas</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-    <h3>📊 Week 2: Functional Math, Logic & Digital Literacy</h3>
-    <p class="goal-text">Goal: Build speed in commercial math, unlock analytical reasoning, and master computer systems.</p>
-    <table>
-        <tr>
-            <th>Day</th>
-            <th>☀️ Day Session (2 Hrs)</th>
-            <th>🌙 Night Session (3 Hrs includes Revision)</th>
-            <th>✍️ 45-Min Practice & SIT Check-in</th>
-        </tr>
-        <tr>
-            <td><strong>Day 8</strong></td>
-            <td>Ratio & Proportion & Partnership</td>
-            <td>Indian Constitution: Rights & Duties</td>
-            <td>Ratio & Proportion MCQs + Ping SIT 💬</td>
-        </tr>
-        <tr>
-            <td><strong>Day 9</strong></td>
-            <td>Simple Interest Applications</td>
-            <td>Windows OS: File Systems & Shortcuts</td>
-            <td>Simple Interest Sets + Snack break 🍪</td>
-        </tr>
-        <tr>
-            <td><strong>Day 10</strong></td>
-            <td>Compound Interest Concepts</td>
-            <td>Odia: Sandhi & Word Formations</td>
-            <td>Compound Interest Drill + Text SIT 💚</td>
-        </tr>
-        <tr>
-            <td><strong>Day 11</strong></td>
-            <td>Reasoning: Number & Alphabet Series</td>
-            <td>English: Subject-Verb Agreement</td>
-            <td>Series & Coding Puzzles + Quick call 📞</td>
-        </tr>
-        <tr>
-            <td><strong>Day 12</strong></td>
-            <td>Reasoning: Blood Relations</td>
-            <td>Odisha Geography: Rivers & Climate</td>
-            <td>Blood Relations Quiz + Message SIT ❤️</td>
-        </tr>
-        <tr>
-            <td><strong>Day 13</strong></td>
-            <td>Time & Work, Pipes & Cisterns</td>
-            <td>Computer: MS Word Core Functions</td>
-            <td>Time & Work Practice + Fruit break 🍓</td>
-        </tr>
-        <tr class="highlight-row">
-            <td><strong>Day 14</strong></td>
-            <td><strong>WEEK 2 REVIEW DAY</strong></td>
-            <td>Revise formulas & grammar rules</td>
-            <td><strong>FULL MOCK TEST 2 + Movie night</strong> 🎬</td>
-        </tr>
-    </table>
+    <div class="card">
+        <h3>📊 Week 3: Geometry & Sciences</h3>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Day</th>
+                    <th>☀️ Day (2 Hrs)</th>
+                    <th>🌙 Night (3 Hrs inc. Revision)</th>
+                    <th>✍️ Practice</th>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 15</strong></td>
+                    <td>Speed & Distance</td>
+                    <td>Science: Human Body</td>
+                    <td>MCQs + Message 🤞</td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 16</strong></td>
+                    <td>Averages & Ages</td>
+                    <td>MS Excel Basics</td>
+                    <td>Drill + <span class="tea-badge">Tea ☕</span></td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 17</strong></td>
+                    <td>Syllogisms</td>
+                    <td>Odia: Samasa (ସମାସ)</td>
+                    <td>Questions + Text 💚</td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 18</strong></td>
+                    <td>Mensuration 2D</td>
+                    <td>English: Active/Passive</td>
+                    <td>2D Drill + Text ❤️</td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 19</strong></td>
+                    <td>Mensuration 3D</td>
+                    <td>MS PowerPoint</td>
+                    <td>3D Drill + <span class="tea-badge">Tea ☕</span></td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 20</strong></td>
+                    <td>Seating Arrangement</td>
+                    <td>Indian History</td>
+                    <td>Quiz + Check-in</td>
+                </tr>
+                <tr class="interactive-row weekend-row" onclick="showSpecificNote('You earned this break! Long video call! 😏😋')">
+                    <td><strong>Day 21</strong></td>
+                    <td><strong>MOCK TEST 3</strong></td>
+                    <td><strong>LONG VIDEO CALL 😏😁😋</strong></td>
+                    <td>GS Review</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-    <h3>📊 Week 3: Geometry Foundations, Office Apps & Sciences</h3>
-    <p class="goal-text">Goal: Tackle geometry basics, master core Microsoft Office apps, and cover high-yield general science.</p>
-    <table>
-        <tr>
-            <th>Day</th>
-            <th>☀️ Day Session (2 Hrs)</th>
-            <th>🌙 Night Session (3 Hrs includes Revision)</th>
-            <th>✍️ 45-Min Practice & SIT Check-in</th>
-        </tr>
-        <tr>
-            <td><strong>Day 15</strong></td>
-            <td>Time, Speed & Distance / Trains</td>
-            <td>Science: Human Nutrition & Diseases</td>
-            <td>Speed-Distance MCQs + Message SIT 🤞</td>
-        </tr>
-        <tr>
-            <td><strong>Day 16</strong></td>
-            <td>Average & Age-Based Problems</td>
-            <td>Computer: MS Excel Basics & Formulas</td>
-            <td>Averages Drill + Snack break 🥨</td>
-        </tr>
-        <tr>
-            <td><strong>Day 17</strong></td>
-            <td>Reasoning: Syllogisms & Venns</td>
-            <td>Odia Grammar: Samasa (ସମାସ)</td>
-            <td>Syllogism Questions + Ping SIT 💚</td>
-        </tr>
-        <tr>
-            <td><strong>Day 18</strong></td>
-            <td>Mensuration 2D: Areas & Perimeters</td>
-            <td>English: Active & Passive Voice Rules</td>
-            <td>2D Geometry Practice + Text SIT ❤️</td>
-        </tr>
-        <tr>
-            <td><strong>Day 19</strong></td>
-            <td>Mensuration 3D: Volumes & Surfaces</td>
-            <td>Computer: MS PowerPoint Mastery</td>
-            <td>3D Geometry Drill + Tea break 🫖</td>
-        </tr>
-        <tr>
-            <td><strong>Day 20</strong></td>
-            <td>Reasoning: Seating Arrangements</td>
-            <td>Indian History: National Movement</td>
-            <td>Seating Quiz + Quick Check-in 💬</td>
-        </tr>
-        <tr class="highlight-row">
-            <td><strong>Day 21</strong></td>
-            <td><strong>WEEK 3 REVIEW DAY</strong></td>
-            <td>Re-read GS notes & Excel formulas</td>
-            <td><strong>FULL MOCK TEST 3 + Dinner Treat</strong> 🍕</td>
-        </tr>
-    </table>
+    <div class="card">
+        <h3>📊 Week 4: Final Polish Marathons</h3>
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Day</th>
+                    <th>☀️ Day (2 Hrs)</th>
+                    <th>🌙 Night (3 Hrs inc. Revision)</th>
+                    <th>✍️ Practice</th>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 22</strong></td>
+                    <td>DI: Bar & Line Graphs</td>
+                    <td>Current Affairs</td>
+                    <td>DI Practice + Text 💚</td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 23</strong></td>
+                    <td>DI: Pie Charts</td>
+                    <td>Odisha Governance</td>
+                    <td>DI Sets + <span class="tea-badge">Tea ☕</span></td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 24</strong></td>
+                    <td>Basic Algebra</td>
+                    <td>English: Direct/Indirect</td>
+                    <td>Quiz + Message ❤️</td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 25</strong></td>
+                    <td>Pattern Completion</td>
+                    <td>Odia: Idioms (ରୂଢି)</td>
+                    <td>Reasoning Drill + Ping 🤞</td>
+                </tr>
+                <tr class="interactive-row" onclick="showRandomNote()">
+                    <td><strong>Day 26</strong></td>
+                    <td>Math Speed Run</td>
+                    <td>Cyber Security</td>
+                    <td>Mixed Math + Chat 💬</td>
+                </tr>
+                <tr class="interactive-row weekend-row" onclick="showSpecificNote('Final stretch baby! You got this! 🔥')">
+                    <td><strong>Day 27</strong></td>
+                    <td><strong>GRAND MOCK 4</strong></td>
+                    <td>Complete Error Analysis</td>
+                    <td>Correct Weak Spots</td>
+                </tr>
+                <tr class="interactive-row weekend-row" onclick="showSpecificNote('Almost exam day! I am so proud of you! ❤️')">
+                    <td><strong>Day 28</strong></td>
+                    <td><strong>GRAND MOCK 5</strong></td>
+                    <td>Revision of Rules</td>
+                    <td>Speed-run Formulas</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-    <h3>📊 Week 4: Final Polish & Mock Marathons</h3>
-    <p class="goal-text">Goal: Perfect data interpretation, memorize idiomatic vocabulary, and build exam-day stamina.</p>
-    <table>
-        <tr>
-            <th>Day</th>
-            <th>☀️ Day Session (2 Hrs)</th>
-            <th>🌙 Night Session (3 Hrs includes Revision)</th>
-            <th>✍️ 45-Min Practice & SIT Check-in</th>
-        </tr>
-        <tr>
-            <td><strong>Day 22</strong></td>
-            <td>DI: Bar Graphs & Line Charts</td>
-            <td>Current Affairs: Key National Schemes</td>
-            <td>DI Practice + Text SIT 💚</td>
-        </tr>
-        <tr>
-            <td><strong>Day 23</strong></td>
-            <td>DI: Pie Charts & Tables</td>
-            <td>Current Affairs: Odisha Governance</td>
-            <td>Complex DI Sets + Snack break 🍦</td>
-        </tr>
-        <tr>
-            <td><strong>Day 24</strong></td>
-            <td>Linear Equations & Basic Algebra</td>
-            <td>English: Direct & Indirect Speech</td>
-            <td>Direct-Indirect Quiz + Message SIT ❤️</td>
-        </tr>
-        <tr>
-            <td><strong>Day 25</strong></td>
-            <td>Reasoning: Pattern Completion</td>
-            <td>Odia: Idioms & Phrases (ରୂଢି)</td>
-            <td>Mixed Reasoning Drill + Ping SIT 🤞</td>
-        </tr>
-        <tr>
-            <td><strong>Day 26</strong></td>
-            <td>Mixed Arithmetic Speed Run</td>
-            <td>Computer: Internet & Cyber Security</td>
-            <td>Mixed Math Revision + Chat with SIT 💬</td>
-        </tr>
-        <tr class="highlight-row">
-            <td><strong>Day 27</strong></td>
-            <td><strong>GRAND MOCK TEST 4</strong></td>
-            <td>Complete 100% Analysis of Errors</td>
-            <td>Focus entirely on correcting weak spots</td>
-        </tr>
-        <tr class="highlight-row">
-            <td><strong>Day 28</strong></td>
-            <td><strong>GRAND MOCK TEST 5</strong></td>
-            <td>Revision of English/Odia Rules</td>
-            <td>Speed-run formulas + Sweet note to SIT 🥰</td>
-        </tr>
-        <tr class="highlight-row">
-            <td><strong>Day 29</strong></td>
-            <td><strong>GRAND MOCK TEST 6</strong></td>
-            <td>Final Quick-Look at Computer Notes</td>
-            <td>Pack exam kit + Relax early with SIT 💚</td>
-        </tr>
-        <tr class="highlight-row">
-            <td><strong>Day 30</strong></td>
-            <td>No heavy studying today!</td>
-            <td>Visual review of formula sheets (1 Hr)</td>
-            <td>Eat your favorite meal & sleep early! ✨</td>
-        </tr>
-    </table>
-
-    <div class="card" style="border-color: var(--mint-green);">
-        <h3 style="color: #2dc653; margin-top: 0;">💡 Strategy for our success:</h3>
+    <div class="card">
+        <h2>💡 Strategy for our success:</h2>
         <ol>
-            <li><strong>The Error Notebook:</strong> For every single mock test, write down the questions you missed in a small notebook. Review it every Sunday morning.</li>
+            <li><strong>The Error Notebook:</strong> For every mock test, write down the questions you missed. Review it every Sunday.</li>
             <li><strong>Accuracy Over Speed:</strong> Since this is a single-stage, high-stakes written exam, accuracy is everything. Don't guess wildly!</li>
-            <li><strong>You've Got This:</strong> Trust the process, take your breaks, and let's cross the finish line together.</li>
+            <li><strong>You've Got This:</strong> Trust the process, take your tea breaks, and let's cross the finish line together.</li>
         </ol>
     </div>
 
     <div class="pglu-note">
         <div class="pglu-text">
-            Dont worry Bachaa...Ur Pglu is with You ❤️💚🤞😉
+            Dont worry Bachaa...<br>Ur Pglu is with You ❤️💚🤞😉
         </div>
     </div>
 
-</body>
-</html>
+    <button class="fab" onclick="showRandomNote()">💌</button>
+
+    <div id="toast-container">Message goes here</div>
+
+    <script>
+        // Array of custom love notes
+        const notes = [
+            "i am always with you 😉😘",
+            "Carry On Bachaa 🥰😌🫶",
+            "Rock on Baby 🥳🔥🤞",
+            "I believe u my wifey 😘🫠",
+            "You're doing amazing, my love! 💚",
+            "Take a deep breath, I'm right here. 🫂",
+            "One step closer to our success! 🌟",
+            "My brilliant Wifey! Keep going! 👑",
+            "SIT loves SHI forever! ❤️💚",
+            "Proud of your hard work today! 😘"
+        ];
+
+        let toastTimeout;
+
+        function showToast(message) {
+            const toast = document.getElementById("toast-container");
+            
+            // Set message
+            toast.innerTex
