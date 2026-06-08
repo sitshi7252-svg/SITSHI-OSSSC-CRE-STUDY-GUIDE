@@ -406,4 +406,38 @@
             let message = specificMessage || notes[Math.floor(Math.random() * notes.length)];
             paperText.innerHTML = message;
             
-            /
+            // Reset Envelope to Closed
+            envWrapper.classList.remove('is-open');
+            tapHint.style.opacity = '1';
+            
+            // Show Overlay
+            modal.classList.add('active');
+            
+            // Optional Haptic
+            if (navigator.vibrate) navigator.vibrate(50);
+        }
+
+        // Tapping the envelope opens the flap and slides paper out
+        function openEnvelope() {
+            if (!envWrapper.classList.contains('is-open')) {
+                envWrapper.classList.add('is-open');
+                tapHint.style.opacity = '0'; // Hide the "Tap to open" text
+                
+                if (navigator.vibrate) navigator.vibrate([50, 100, 50]);
+            }
+        }
+
+        // Clicking outside the envelope closes it
+        function closeModal(event) {
+            if (event.target === modal) {
+                modal.classList.remove('active');
+            }
+        }
+
+        // The X button
+        function forceClose() {
+            modal.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
